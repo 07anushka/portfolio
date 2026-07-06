@@ -1,33 +1,40 @@
 # 💼 Personal Portfolio Website
 
-A modern, responsive, and animated personal portfolio website built using **React.js** and **Vite**. The portfolio showcases my skills, projects, certifications, experience, and contact information with a premium UI and smooth animations.
+A modern, responsive, and animated personal portfolio built with **React.js** and **Vite**. This portfolio showcases my skills, projects, certifications, experience, and contact information through a clean UI, smooth animations, and interactive effects.
 
-## 🚀 Features
+---
 
-- ✨ Modern Glassmorphism UI
-- 🎨 Responsive Design
+## 🌐 Live Demo
+
+> **Coming Soon** *(Will be deployed on Vercel)*
+
+---
+
+## ✨ Features
+
+- 🎨 Modern & Responsive UI
 - 🌙 Dark Theme
 - ⚡ Built with React + Vite
 - 🎬 Smooth Animations using Framer Motion
-- 📱 Mobile Friendly Navigation
-- 🎯 Animated Hero Section
-- 👨‍💻 About Section
-- 🛠 Skills Showcase
+- 📱 Fully Mobile Responsive
+- 🏠 Hero Section
+- 👨‍💻 About Me
+- 🛠 Skills Section
 - 💼 Experience Timeline
-- 🚀 Projects Gallery
-- 📜 Certifications Section
-- 📧 Contact Form using EmailJS
+- 🚀 Projects Showcase
+- 📜 Certifications
+- 📧 Contact Form with EmailJS
 - 🔔 Beautiful Toast Notifications
-- 🌌 Animated Background Effects
-- 🖱 Mouse Glow Effect
-- ✨ Particle Background
+- 🌌 Animated Background
+- 🖱 Interactive Mouse Glow Effect
+- ✨ Particle Animation
 - 📊 Scroll Progress Indicator
 
 ---
 
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
-### Frontend
+## Frontend
 
 - React.js
 - Vite
@@ -36,7 +43,7 @@ A modern, responsive, and animated personal portfolio website built using **Reac
 - CSS3
 - Tailwind CSS
 
-### Libraries Used
+## Libraries
 
 - Framer Motion
 - React Icons
@@ -46,9 +53,9 @@ A modern, responsive, and animated personal portfolio website built using **Reac
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
-```
+```text
 portfolio/
 │
 ├── public/
@@ -59,7 +66,6 @@ portfolio/
 │   │   └── icons/
 │   │
 │   ├── components/
-│   │
 │   │   ├── layout/
 │   │   │   ├── Background.jsx
 │   │   │   ├── Footer.jsx
@@ -87,46 +93,47 @@ portfolio/
 │   └── index.css
 │
 ├── package.json
+├── package-lock.json
 ├── vite.config.js
 ├── README.md
-└── .env
+└── .gitignore
 ```
 
 ---
 
-## 📦 Installation
+# 🚀 Getting Started
 
-Clone the repository
+## 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/07anushka/portfolio.git
 ```
 
-Move into the project directory
+## 2️⃣ Navigate to the Project Folder
 
 ```bash
 cd portfolio
 ```
 
-Install dependencies
+## 3️⃣ Install Dependencies
 
 ```bash
 npm install
 ```
 
-Run the development server
+## 4️⃣ Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-Build for production
+## 5️⃣ Build for Production
 
 ```bash
 npm run build
 ```
 
-Preview production build
+## 6️⃣ Preview Production Build
 
 ```bash
 npm run preview
@@ -134,9 +141,9 @@ npm run preview
 
 ---
 
-## 📧 EmailJS Configuration
+# 📧 EmailJS Setup
 
-Create a `.env` file in the project root.
+Create a `.env` file in the project root and add your EmailJS credentials:
 
 ```env
 VITE_EMAILJS_SERVICE_ID=your_service_id
@@ -144,49 +151,51 @@ VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
----
-
-## 📸 Sections Included
-
-- Hero
-- About
-- Skills
-- Experience
-- Projects
-- Certifications
-- Contact
-- Footer
+> **Note:** Never commit your `.env` file to GitHub.
 
 ---
 
-## 🌟 Future Improvements
+# 📂 Portfolio Sections
 
-- Blog Section
-- Light/Dark Theme Toggle
-- Download Resume Button
-- Project Filtering
-- Admin Dashboard
-- Backend Integration
-- Visitor Analytics
-- Multi-language Support
-
----
-
-## 👨‍💻 Developed By
-
-**Anushka Naik**
-
-Full Stack Developer
-
-- React.js
-- Python
-- Django
-- JavaScript
-- SQL
-- HTML & CSS
+- 🏠 Hero
+- 👨‍💻 About
+- 🛠 Skills
+- 💼 Experience
+- 🚀 Projects
+- 📜 Certifications
+- 📧 Contact
+- 📄 Footer
 
 ---
 
-## 📄 License
+# 🚀 Future Enhancements
 
-This project is licensed under the MIT License.
+- 🌗 Light / Dark Theme Toggle
+- 📝 Blog Section
+- 📥 Resume Download
+- 🔍 Project Filtering
+- 📊 Visitor Analytics
+- 🌍 Multi-language Support
+- 🖥 Admin Dashboard
+
+---
+
+# 👩‍💻 Developed By
+
+## **Anushka Naik**
+
+Aspiring **Full Stack Developer** passionate about building responsive, scalable, and user-friendly web applications using modern web technologies.
+
+### Connect With Me
+
+- **GitHub:** https://github.com/07anushka
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+⭐ **If you like this project, don't forget to star the repository!**
