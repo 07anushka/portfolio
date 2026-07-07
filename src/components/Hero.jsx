@@ -110,7 +110,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="https://linkedin.com/in/anushka-a-naik"
+              href="https://www.linkedin.com/in/anushka-a-naik-965593253/"
               target="_blank"
               rel="noreferrer"
               className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-600 transition"

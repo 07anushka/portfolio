@@ -14,18 +14,37 @@ import toast from "react-hot-toast";
 
 const Contact = () => {
   const form = useRef(null);
-
   const [loading, setLoading] = useState(false);
-
-  console.log(import.meta.env);
 
   const sendEmail = async (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    console.log("FORM SUBMITTED");
-
     if (loading) return;
+
+    const formData = new FormData(form.current);
+
+    const name = formData.get("from_name")?.trim();
+    const email = formData.get("from_email")?.trim();
+    const subject = formData.get("subject")?.trim();
+    const message = formData.get("message")?.trim();
+
+    if (!name || !email || !subject || !message) {
+      toast.error("Please fill in all the fields.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    if (message.length < 10) {
+      toast.error("Message should be at least 10 characters.");
+      return;
+    }
 
     setLoading(true);
 
@@ -39,11 +58,11 @@ const Contact = () => {
 
       console.log("Email Sent:", result);
 
+      form.current.reset();
+
       toast.success("🎉 Message sent successfully!", {
         duration: 4000,
       });
-
-      form.current.reset();
     } catch (err) {
       console.error("EmailJS Error:", err);
 
@@ -53,8 +72,6 @@ const Contact = () => {
     } finally {
       setLoading(false);
     }
-
-    return false;
   };
 
   return (
@@ -63,8 +80,6 @@ const Contact = () => {
       className="relative py-32 px-6 text-white"
     >
       <div className="max-w-7xl mx-auto">
-
-        {/* Heading */}
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -80,7 +95,6 @@ const Contact = () => {
           <h2 className="text-5xl md:text-6xl font-black mt-6">
             Let's Work
             <br />
-
             <span className="bg-gradient-to-r from-violet-400 via-fuchsia-500 to-cyan-400 bg-clip-text text-transparent">
               Together
             </span>
@@ -91,12 +105,9 @@ const Contact = () => {
             freelance projects,
             collaborations and full-time opportunities.
           </p>
-
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-
-          {/* LEFT */}
 
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -112,7 +123,6 @@ const Contact = () => {
               p-10
             "
           >
-
             <h3 className="text-3xl font-bold mb-10">
               Contact Information
             </h3>
@@ -120,57 +130,42 @@ const Contact = () => {
             <div className="space-y-8">
 
               <div className="flex items-center gap-5">
-
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 flex items-center justify-center">
                   <FaEnvelope />
                 </div>
 
                 <div>
-                  <h4 className="font-semibold">
-                    Email
-                  </h4>
-
+                  <h4 className="font-semibold">Email</h4>
                   <p className="text-gray-400">
                     anushkanaik0705@gmail.com
                   </p>
                 </div>
-
               </div>
 
               <div className="flex items-center gap-5">
-
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
                   <FaPhoneAlt />
                 </div>
 
                 <div>
-                  <h4 className="font-semibold">
-                    Phone
-                  </h4>
-
+                  <h4 className="font-semibold">Phone</h4>
                   <p className="text-gray-400">
                     +91 6361603196
                   </p>
                 </div>
-
               </div>
 
               <div className="flex items-center gap-5">
-
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center">
                   <FaMapMarkerAlt />
                 </div>
 
                 <div>
-                  <h4 className="font-semibold">
-                    Location
-                  </h4>
-
+                  <h4 className="font-semibold">Location</h4>
                   <p className="text-gray-400">
                     Bangalore, Karnataka
                   </p>
                 </div>
-
               </div>
 
             </div>
@@ -200,133 +195,128 @@ const Contact = () => {
             </div>
 
           </motion.div>
-                    {/* RIGHT */}
+          <form
+  ref={form}
+  onSubmit={sendEmail}
+  autoComplete="off"
+  className="
+    rounded-[35px]
+    bg-white/5
+    backdrop-blur-xl
+    border
+    border-white/10
+    p-10
+    space-y-6
+  "
+>
+  <input
+    type="text"
+    name="from_name"
+    placeholder="Your Name"
+    required
+    className="
+      w-full
+      p-5
+      rounded-2xl
+      bg-[#111827]
+      border
+      border-white/10
+      outline-none
+      transition
+      focus:border-violet-500
+    "
+  />
 
-                    <form
-            ref={form}
-            onSubmit={sendEmail}
-            noValidate
-            autoComplete="off"
-            className="
-              rounded-[35px]
-              bg-white/5
-              backdrop-blur-xl
-              border
-              border-white/10
-              p-10
-              space-y-6
-            "
-          >
+  <input
+    type="email"
+    name="from_email"
+    placeholder="Email Address"
+    required
+    className="
+      w-full
+      p-5
+      rounded-2xl
+      bg-[#111827]
+      border
+      border-white/10
+      outline-none
+      transition
+      focus:border-violet-500
+    "
+  />
 
-            <input
-              type="text"
-              name="from_name"
-              placeholder="Your Name"
-              required
-              className="
-                w-full
-                p-5
-                rounded-2xl
-                bg-[#111827]
-                border
-                border-white/10
-                outline-none
-                transition
-                focus:border-violet-500
-              "
-            />
+  <input
+    type="text"
+    name="subject"
+    placeholder="Subject"
+    required
+    className="
+      w-full
+      p-5
+      rounded-2xl
+      bg-[#111827]
+      border
+      border-white/10
+      outline-none
+      transition
+      focus:border-violet-500
+    "
+  />
 
-            <input
-              type="email"
-              name="from_email"
-              placeholder="Email Address"
-              required
-              className="
-                w-full
-                p-5
-                rounded-2xl
-                bg-[#111827]
-                border
-                border-white/10
-                outline-none
-                transition
-                focus:border-violet-500
-              "
-            />
+  <textarea
+    rows={6}
+    name="message"
+    placeholder="Your Message"
+    required
+    className="
+      w-full
+      p-5
+      rounded-2xl
+      bg-[#111827]
+      border
+      border-white/10
+      outline-none
+      resize-none
+      transition
+      focus:border-violet-500
+    "
+  />
 
-            <input
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              required
-              className="
-                w-full
-                p-5
-                rounded-2xl
-                bg-[#111827]
-                border
-                border-white/10
-                outline-none
-                transition
-                focus:border-violet-500
-              "
-            />
+  <motion.button
+    type="submit"
+    disabled={loading}
+    whileHover={{
+      scale: loading ? 1 : 1.03,
+    }}
+    whileTap={{
+      scale: loading ? 1 : 0.96,
+    }}
+    className="
+      w-full
+      py-5
+      rounded-2xl
+      bg-gradient-to-r
+      from-violet-600
+      via-purple-600
+      to-cyan-500
+      text-white
+      font-semibold
+      flex
+      items-center
+      justify-center
+      gap-3
+      shadow-[0_0_35px_rgba(168,85,247,.35)]
+      transition-all
+      disabled:opacity-70
+      disabled:cursor-not-allowed
+    "
+  >
+    <FaPaperPlane />
 
-            <textarea
-              rows={6}
-              name="message"
-              placeholder="Your Message"
-              required
-              className="
-                w-full
-                p-5
-                rounded-2xl
-                bg-[#111827]
-                border
-                border-white/10
-                outline-none
-                resize-none
-                transition
-                focus:border-violet-500
-              "
-            />
+    {loading ? "Sending..." : "Send Message"}
+  </motion.button>
 
-            <motion.button
-              type="submit"
-              disabled={loading}
-              whileHover={{
-                scale: loading ? 1 : 1.03,
-              }}
-              whileTap={{
-                scale: loading ? 1 : 0.96,
-              }}
-              className="
-                w-full
-                py-5
-                rounded-2xl
-                bg-gradient-to-r
-                from-violet-600
-                via-purple-600
-                to-cyan-500
-                text-white
-                font-semibold
-                flex
-                items-center
-                justify-center
-                gap-3
-                shadow-[0_0_35px_rgba(168,85,247,.35)]
-                transition-all
-                disabled:opacity-70
-                disabled:cursor-not-allowed
-              "
-            >
-              <FaPaperPlane />
-
-              {loading ? "Sending..." : "Send Message"}
-
-            </motion.button>
-
-          </form>
+</form>
 
         </div>
 
